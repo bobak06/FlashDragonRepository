@@ -2,6 +2,7 @@ package Amazon;
         import CommonAPI.Base;
         import org.openqa.selenium.By;
         import org.openqa.selenium.Keys;
+        import org.openqa.selenium.WebDriver;
         import org.testng.annotations.Test;
 
 
@@ -10,11 +11,16 @@ package Amazon;
  * Created by Bijan Samiyi on 12/30/2015.
  */
 
-public class Retail extends Base {
+public class Retail  extends Base{
     @Test
     public void home(){
-        typeByCss("#twotabsearchtextbox", "Dominique o'Brien");
+
+        typeByCss("#twotabsearchtextbox","politics");
     }
+
+
+
+
 }
 
 

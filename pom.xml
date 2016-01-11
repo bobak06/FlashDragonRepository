@@ -10,37 +10,65 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Generic</module>
-        <module>CNN</module>
+        <module>Cnn</module>
         <module>Amazon</module>
-        <module>eBay</module>
+        <module>Ebay</module>
     </modules>
-<dependencyManagement>
-<dependencies>
-    <dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.9.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>2.48.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-server</artifactId>
+                <version>2.48.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>3.13</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <profiles>
 
+        <profile>
+            <id>amazon-app</id>
+            <modules>
+                <module>Generic</module>
+                <module>Amazon</module>
+            </modules>
+        </profile>
 
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>6.9.10</version>
-    </dependency>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>Generic</module>
+                <module>Cnn</module>
+                <module>Amazon</module>
 
+            </modules>
+        </profile>
 
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>2.48.2</version>
-    </dependency>
+        <profile>
+            <id>cnn-app</id>
+            <modules>
+                <module>Generic</module>
+                <module>Cnn</module>
+            </modules>
+        </profile>
 
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-server</artifactId>
-        <version>2.48.2</version>
-    </dependency>
-
-
-
-
-</dependencies>
-</dependencyManagement>
+            </profiles>
 
 </project>
